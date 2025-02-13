@@ -1,13 +1,12 @@
 import streamlit as st
 import psycopg2
 import pandas as pd
-import time
 import os
 from datetime import datetime
 from dotenv import load_dotenv
 
 # Carrega variáveis de ambiente do arquivo .env
-load_dotenv()
+load_dotenv(override=True)
 
 # Lê as variáveis separadas do arquivo .env (sem SSL)
 POSTGRES_USER = os.getenv("POSTGRES_USER")
@@ -15,6 +14,7 @@ POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT")
 POSTGRES_DB = os.getenv("POSTGRES_DB")
+
 
 def ler_dados_postgres():
     """Lê os dados do banco PostgreSQL e retorna como DataFrame."""
